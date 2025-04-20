@@ -8,15 +8,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
     # Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v2
-
     # Log in to Render API and deploy
     - name: Deploy to Render
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
       run: |
-        curl -fsSL https://render.com/deploy/sync -X POST \
-          -d '{"serviceId": "DevOpsWithDocker-3_2_Deployment_pipeline_to_a_cloud_service"}' \
-          -H "Authorization: Bearer ${{ secrets.RENDER_API_TOKEN }}"
+        curl -X POST "https://api.render.com/v1/services/DevOpsWithDocker-3_2_Deployment_pipeline_to_a_cloud_service/deploy" \
+          -H "Authorization: Bearer $RENDER_API_KEY"

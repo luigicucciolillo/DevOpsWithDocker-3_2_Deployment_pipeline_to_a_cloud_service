@@ -7,7 +7,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // API route to send the message
 app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Express API! Render name in Github Actoins adjusted' });
+  res.json({ message: 'Hello from Express API! Github actions fixed, deployment ready' });
 });
 
 // Serve the React app (fallback route)

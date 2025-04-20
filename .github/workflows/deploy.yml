@@ -18,5 +18,5 @@ jobs:
     - name: Deploy to Render
       run: |
         curl -fsSL https://render.com/deploy/sync -X POST \
-          -d '{"serviceId": "your-render-service-id"}' \
+          -d '{"serviceId": "DevOpsWithDocker-3_2_Deployment_pipeline_to_a_cloud_service"}' \
           -H "Authorization: Bearer ${{ secrets.RENDER_API_TOKEN }}"
